@@ -8,7 +8,8 @@ Group:		Networking/Utilities
 URL:		http://www.sixxs.net/tools/aiccu/
 Vendor:		SixXS
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Source0:	%{name}_%{version}.tar.gz
+Source0:	http://www.sixxs.net/archive/sixxs/aiccu/unix/%{name}_%{version}.tar.gz
+# Source0-md5:	7c3da5feab3d59fb5a99a45203e0ca56
 Patch0:		%{name}-makefile.diff
 Requires:	iproute2
 Requires(post,preun):	chkconfig
