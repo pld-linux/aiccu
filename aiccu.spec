@@ -61,5 +61,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(600, root, root) %{_sysconfdir}/aiccu.conf
 %doc doc/README doc/LICENSE
 %attr(755,root,root) %{_sbindir}/aiccu
-%config %{_sysconfdir}/aiccu.conf
 %attr(754,root,root) %config /etc/rc.d/init.d/aiccu
