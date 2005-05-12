@@ -1,0 +1,11 @@
+diff -urN orig/unix-console/Makefile mod/unix-console/Makefile
+--- orig/unix-console/Makefile	2005-01-31 19:59:30.000000000 +0100
++++ mod/unix-console/Makefile	2005-05-12 02:03:31.491536032 +0200
+@@ -24,7 +24,6 @@
+ # Linux
+ ifeq ($(shell uname | grep -c "Linux"),1)
+ CFLAGS  += -D AICCU_TYPE="\"linux\""
+-CWARNS	+= -Wpadded -Wpacked
+ SRCS	+= ../common/aiccu_linux.c
+ OBJS	+= ../common/aiccu_linux.o
+ LDFLAGS	= -lpthread
