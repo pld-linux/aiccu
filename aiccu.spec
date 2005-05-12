@@ -4,60 +4,61 @@ Name:		aiccu
 Version:	2005.01.31
 Release:	0.2
 License:	GPL
-Group:		Networking/Utilities
-URL:		http://www.sixxs.net/tools/aiccu/
 Vendor:		SixXS
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Group:		Networking/Utilities
 Source0:	http://www.sixxs.net/archive/sixxs/aiccu/unix/%{name}_%{version}.tar.gz
 # Source0-md5:	7c3da5feab3d59fb5a99a45203e0ca56
 Patch0:		%{name}-makefile.diff
+URL:		http://www.sixxs.net/tools/aiccu/
+Requires(post,preun):	/sbin/chkconfig
 Requires:	iproute2
-Requires(post,preun):	chkconfig
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This client automatically gives one IPv6 connectivity without having
 to manually configure interfaces etc. One does need a SixXS account
 and at least a tunnel. These can be freely & gratis requested from the
 SixXS website. For more information about SixXS check
-http://www.sixxs.net
+<http://www.sixxs.net/>.
 
 %description -l pl
 Ten klient automatycznie pozwala na stworzenie po³±czenia IPv6 bez
 konieczno¶ci rêcznej konfiguracji interfejsów itp. Potrzeba do tego
-konta w serwisie SixXS oraz conajmniej tunelu. Mog± one byæ uzyskane
-na stronie SixXS http://www.sixx.net, któr± odwied¼ w celu uzyskania
-szczegó³ów.
+konta w serwisie SixXS oraz co najmniej tunelu. Mog± one byæ uzyskane
+na stronie SixXS <http://www.sixx.net/>, na której mo¿na znale¼æ
+wiêcej szczegó³ów.
 
 %prep
 %setup -q -n %{name}
 %patch0 -p1
 
 %build
-%{__make} RPM_OPT_FLAGS="$RPM_OPT_FLAGS"
+%{__make} \
+	RPM_OPT_FLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %post
 #if [ "$1" = "1" ]; then
-#	chkconfig --add aiccu
+#	/sbin/chkconfig --add aiccu
 #fi
 
 %preun
 #if [ "$1" = "0" ]; then
-#	service aiccu stop >/dev/null 2>&1
+#	/etc/rc.d/init.d/aiccu stop >/dev/null 2>&1
 #	/sbin/chkconfig --del aiccu
 #fi
 
-%clean
-make clean
-rm -rf $RPM_BUILD_ROOT
-
 %files
 %defattr(644,root,root,755)
-%attr(600, root, root) %{_sysconfdir}/aiccu.conf
 %doc doc/README doc/LICENSE
 %attr(755,root,root) %{_sbindir}/aiccu
-%config %{_sysconfdir}/aiccu.conf
-%attr(754,root,root) %config /etc/rc.d/init.d/aiccu
+%attr(600,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/aiccu.conf
+%attr(754,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/rc.d/init.d/aiccu
