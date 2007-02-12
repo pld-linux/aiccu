@@ -1,5 +1,5 @@
 Summary:	AICCU - SixXS Automatic IPv6 Connectivity Client Utility
-Summary(pl.UTF-8):   AICCU - Klient automatycznych połączeń IPv6 z SixXS
+Summary(pl.UTF-8):	AICCU - Klient automatycznych połączeń IPv6 z SixXS
 Name:		aiccu
 Version:	2005.01.31
 Release:	0.2
