@@ -1,5 +1,5 @@
 Summary:	AICCU - SixXS Automatic IPv6 Connectivity Client Utility
-Summary(pl):	AICCU - Klient automatycznych po³±czeñ IPv6 z SixXS
+Summary(pl.UTF-8):   AICCU - Klient automatycznych poÅ‚Ä…czeÅ„ IPv6 z SixXS
 Name:		aiccu
 Version:	2005.01.31
 Release:	0.2
@@ -21,12 +21,12 @@ and at least a tunnel. These can be freely & gratis requested from the
 SixXS website. For more information about SixXS check
 <http://www.sixxs.net/>.
 
-%description -l pl
-Ten klient automatycznie pozwala na stworzenie po³±czenia IPv6 bez
-konieczno¶ci rêcznej konfiguracji interfejsów itp. Potrzeba do tego
-konta w serwisie SixXS oraz co najmniej tunelu. Mog± one byæ uzyskane
-na stronie SixXS <http://www.sixx.net/>, na której mo¿na znale¼æ
-wiêcej szczegó³ów.
+%description -l pl.UTF-8
+Ten klient automatycznie pozwala na stworzenie poÅ‚Ä…czenia IPv6 bez
+koniecznoÅ›ci rÄ™cznej konfiguracji interfejsÃ³w itp. Potrzeba do tego
+konta w serwisie SixXS oraz co najmniej tunelu. MogÄ… one byÄ‡ uzyskane
+na stronie SixXS <http://www.sixx.net/>, na ktÃ³rej moÅ¼na znaleÅºÄ‡
+wiÄ™cej szczegÃ³Å‚Ã³w.
 
 %prep
 %setup -q -n %{name}
