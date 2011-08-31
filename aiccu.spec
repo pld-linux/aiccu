@@ -3,7 +3,7 @@ Summary(pl.UTF-8):	AICCU - Klient automatycznych połączeń IPv6 z SixXS
 Name:		aiccu
 Version:	2007.01.15
 %define		_fileversion	20070115
-Release:	1
+Release:	2
 License:	BSD
 Vendor:		SixXS
 Group:		Networking/Utilities
