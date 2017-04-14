@@ -1,0 +1,31 @@
+From: "Barak A. Pearlmutter" <barak+git@cs.nuim.ie>
+Date: Sat, 22 Feb 2014 15:49:24 +0000
+Subject: memset sizeof
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Teeny little bug.
+
+../common/hash_md5.c: In function ‘MD5Final’:
+../common/hash_md5.c:134:23: warning: argument to ‘sizeof’ in ‘memset’ call is the same expression as the destination; did you mean to dereference it? [-Wsizeof-pointer-memaccess]
+  memset(ctx, 0, sizeof(ctx)); /* In case it's sensitive */
+
+Guess it isn't sensitive.  Lucky a pointer takes less space than a struct MD5Context!
+---
+ common/hash_md5.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/common/hash_md5.c b/common/hash_md5.c
+index 160b849..ca4c1b9 100755
+--- a/common/hash_md5.c
++++ b/common/hash_md5.c
+@@ -131,7 +131,7 @@ MD5Final(md5byte digest[16], struct MD5Context *ctx)
+ 
+ 	byteSwap(ctx->buf, 4);
+ 	memcpy(digest, ctx->buf, 16);
+-	memset(ctx, 0, sizeof(ctx));	/* In case it's sensitive */
++	memset(ctx, 0, sizeof(*ctx));	/* In case it's sensitive */
+ }
+ 
+ #ifndef ASM_MD5

@@ -1,0 +1,16 @@
+Description: Add missing description for "aiccu autotest"
+Author: Axel Beckert <abe@debian.org>
+Forwarded: not-yet
+
+--- a/doc/aiccu.1
++++ b/doc/aiccu.1
+@@ -41,7 +41,8 @@
+ to report this back as it should show most obvious problems.
+ .TP
+ \fBautotest\fR
+-Decription here
++Same as \fBtest\fR but without interactive questions. Piping the
++output of "aiccu autotest" into a log file or "tee" is a good idea.
+ .TP
+ \fBlicense\fR
+ Shows the license aiccu is released under.

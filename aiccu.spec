@@ -3,13 +3,24 @@ Summary(pl.UTF-8):	AICCU - Klient automatycznych połączeń IPv6 z SixXS
 Name:		aiccu
 Version:	2007.01.15
 %define		_fileversion	20070115
-Release:	2
+Release:	3
 License:	BSD
 Vendor:		SixXS
 Group:		Networking/Utilities
 Source0:	http://www.sixxs.net/archive/sixxs/aiccu/unix/%{name}_%{_fileversion}.tar.gz
 # Source0-md5:	c9bcc83644ed788e22a7c3f3d4021350
 Patch0:		%{name}-makefile.diff
+Patch1:		02_skip-strip.patch
+Patch2:		03_no-quiet-gcc.patch
+Patch3:		05_spelling-error.patch
+Patch4:		06_syslog_openlog.patch
+Patch5:		07_allow_tunnels.patch
+Patch6:		08_setup_script.patch
+Patch7:		09_binutils_gold.patch
+Patch8:		10_gnutls34.patch
+Patch9:		11_gnutls-cleanup.patch
+Patch10:	12_memset-sizeof.patch
+Patch11:	13_autotest_description.patch
 URL:		http://www.sixxs.net/tools/aiccu/
 Requires(post,preun):	/sbin/chkconfig
 Requires:	gnutls
@@ -34,6 +45,17 @@ więcej szczegółów.
 %prep
 %setup -q -n %{name}
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
+%patch3 -p1
+%patch4 -p1
+%patch5 -p1
+%patch6 -p1
+%patch7 -p1
+%patch8 -p1
+%patch9 -p1
+%patch10 -p1
+%patch11 -p1
 
 %build
 %{__make} \
