@@ -2,12 +2,11 @@ Summary:	AICCU - SixXS Automatic IPv6 Connectivity Client Utility
 Summary(pl.UTF-8):	AICCU - Klient automatycznych połączeń IPv6 z SixXS
 Name:		aiccu
 Version:	2007.01.15
-%define		_fileversion	20070115
+%define		filever	20070115
 Release:	3
 License:	BSD
-Vendor:		SixXS
 Group:		Networking/Utilities
-Source0:	http://www.sixxs.net/archive/sixxs/aiccu/unix/%{name}_%{_fileversion}.tar.gz
+Source0:	http://www.sixxs.net/archive/sixxs/aiccu/unix/%{name}_%{filever}.tar.gz
 # Source0-md5:	c9bcc83644ed788e22a7c3f3d4021350
 Patch0:		%{name}-makefile.diff
 Patch1:		02_skip-strip.patch
@@ -22,10 +21,10 @@ Patch9:		11_gnutls-cleanup.patch
 Patch10:	12_memset-sizeof.patch
 Patch11:	13_autotest_description.patch
 URL:		http://www.sixxs.net/tools/aiccu/
-Requires(post,preun):	/sbin/chkconfig
+BuildRequires:	gnutls-devel
+#Requires(post,preun):	/sbin/chkconfig
 Requires:	gnutls
 Requires:	iproute2
-BuildRequires:	gnutls-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
