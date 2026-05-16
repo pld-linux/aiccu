@@ -3,7 +3,7 @@ Summary(pl.UTF-8):	AICCU - Klient automatycznych połączeń IPv6 z SixXS
 Name:		aiccu
 Version:	2007.01.15
 %define		filever	20070115
-Release:	4
+Release:	5
 License:	BSD
 Group:		Networking/Utilities
 Source0:	http://www.sixxs.net/archive/sixxs/aiccu/unix/%{name}_%{filever}.tar.gz
